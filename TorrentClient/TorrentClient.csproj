@@ -1,0 +1,150 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <DebugType>full</DebugType>
+    <CodeAnalysisRuleSet>..\stylecop.ruleset</CodeAnalysisRuleSet>
+    <Authors>Aljaz Simonic</Authors>
+    <Company>Aljaz Simonic</Company>
+    <Description>The biz torrent client implementing BitTorrent Protocol 1.0.</Description>
+    <Copyright>
+    </Copyright>
+    <PackageLicenseUrl>https://opensource.org/licenses/MIT</PackageLicenseUrl>
+    <PackageProjectUrl>https://github.com/aljazsim/torrent-client-for-net/</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/aljazsim/torrent-client-for-net.git</RepositoryUrl>
+    <RepositoryType>GIT</RepositoryType>
+    <PackageTags>Torrent, BitTorrent</PackageTags>
+    <NeutralLanguage>en</NeutralLanguage>
+    <ProjectGuid>{AD4CA3B1-BCAE-486F-9971-E856F7F0F2E4}</ProjectGuid>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <OutputPath>.\..\..\Binaries\TorrentClient</OutputPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <OutputPath>.\..\..\Binaries\TorrentClient</OutputPath>
+  </PropertyGroup>
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{AD4CA3B1-BCAE-486F-9971-E856F7F0F2E4}</ProjectGuid>
+    <OutputType>Library</OutputType>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
+  <PropertyGroup>
+    <RootNamespace>TorrentClient</RootNamespace>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|AnyCPU'">
+    <Prefer32Bit>false</Prefer32Bit>
+    <OutputPath>..\RunDir\</OutputPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|AnyCPU'">
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="BEncoding\BEncodedDictionary.cs" />
+    <Compile Include="BEncoding\BEncodedList.cs" />
+    <Compile Include="BEncoding\BEncodedNumber.cs" />
+    <Compile Include="BEncoding\BEncodedString.cs" />
+    <Compile Include="BEncoding\BEncodedValue.cs" />
+    <Compile Include="BEncoding\RawReader.cs" />
+    <Compile Include="EventArgs\TorrentHashingEventArgs.cs" />
+    <Compile Include="EventArgs\TorrentLeechingEventArgs.cs" />
+    <Compile Include="EventArgs\TorrentSeedingEventArgs.cs" />
+    <Compile Include="EventArgs\TorrentStartedEventArgs.cs" />
+    <Compile Include="EventArgs\TorrentStoppedEventArgs.cs" />
+    <Compile Include="Exceptions\BEncodingException.cs" />
+    <Compile Include="Exceptions\MessageException.cs" />
+    <Compile Include="Exceptions\PeerWireProtocolException.cs" />
+    <Compile Include="Exceptions\TorrentClientException.cs" />
+    <Compile Include="Exceptions\TorrentInfoException.cs" />
+    <Compile Include="Exceptions\TorrentPersistanceException.cs" />
+    <Compile Include="Exceptions\TrackerProtocolException.cs" />
+    <Compile Include="Extensions\CryptoExtensions.cs" />
+    <Compile Include="Extensions\ExceptionExtensions.cs" />
+    <Compile Include="Extensions\IoExtensions.cs" />
+    <Compile Include="Extensions\ObjectExtensions.cs" />
+    <Compile Include="Extensions\RandomHelper.cs" />
+    <Compile Include="Extensions\StringCasing.cs" />
+    <Compile Include="Extensions\StringExtensions.cs" />
+    <Compile Include="Extensions\WebExtensions.cs" />
+    <Compile Include="PeerWireProtocol\AsyncConnectData.cs" />
+    <Compile Include="PeerWireProtocol\AsyncReadData.cs" />
+    <Compile Include="PeerWireProtocol\EventArgs\CommunicationErrorEventArgs.cs" />
+    <Compile Include="PeerWireProtocol\EventArgs\PeerCommunicationErrorEventArgs.cs" />
+    <Compile Include="PeerWireProtocol\EventArgs\PeerMessgeReceivedEventArgs.cs" />
+    <Compile Include="PeerWireProtocol\EventArgs\PieceCompletedEventArgs.cs" />
+    <Compile Include="PeerWireProtocol\EventArgs\PieceCorruptedEventArgs.cs" />
+    <Compile Include="PeerWireProtocol\EventArgs\PieceRequestedEventArgs.cs" />
+    <Compile Include="PeerWireProtocol\HandshakeState.cs" />
+    <Compile Include="PeerWireProtocol\LeechingState.cs" />
+    <Compile Include="PeerWireProtocol\Messages\BitfieldMessage.cs" />
+    <Compile Include="PeerWireProtocol\Messages\CancelMessage.cs" />
+    <Compile Include="PeerWireProtocol\Messages\ChokeMessage.cs" />
+    <Compile Include="PeerWireProtocol\Messages\HandshakeMessage.cs" />
+    <Compile Include="PeerWireProtocol\Messages\HaveMessage.cs" />
+    <Compile Include="PeerWireProtocol\Messages\InterestedMessage.cs" />
+    <Compile Include="PeerWireProtocol\Messages\KeepAliveMessage.cs" />
+    <Compile Include="PeerWireProtocol\Messages\Message.cs" />
+    <Compile Include="PeerWireProtocol\Messages\PeerMessage.cs" />
+    <Compile Include="PeerWireProtocol\Messages\PieceMessage.cs" />
+    <Compile Include="PeerWireProtocol\Messages\PortMessage.cs" />
+    <Compile Include="PeerWireProtocol\Messages\RequestMessage.cs" />
+    <Compile Include="PeerWireProtocol\Messages\UnchokeMessage.cs" />
+    <Compile Include="PeerWireProtocol\Messages\UninterestedMessage.cs" />
+    <Compile Include="PeerWireProtocol\Peer.cs" />
+    <Compile Include="PeerWireProtocol\PeerCommunicator.cs" />
+    <Compile Include="PeerWireProtocol\Piece.cs" />
+    <Compile Include="PeerWireProtocol\PieceManager.cs" />
+    <Compile Include="PeerWireProtocol\PieceStatus.cs" />
+    <Compile Include="PeerWireProtocol\SeedingState.cs" />
+    <Compile Include="PersistenceManager.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ThrottlingManager.cs" />
+    <Compile Include="TorrentClient.cs" />
+    <Compile Include="TorrentFileInfo.cs" />
+    <Compile Include="TorrentInfo.cs" />
+    <Compile Include="TorrentPeerInfo.cs" />
+    <Compile Include="TorrentProgressInfo.cs" />
+    <Compile Include="TorrentTrackerInfo.cs" />
+    <Compile Include="TrackerProtocol\EventArgs\AnnouncedEventArgs.cs" />
+    <Compile Include="TrackerProtocol\EventArgs\TrackingFailedEventArgs.cs" />
+    <Compile Include="TrackerProtocol\Http\HttpTracker.cs" />
+    <Compile Include="TrackerProtocol\Http\Messages\AnnounceMessage.cs" />
+    <Compile Include="TrackerProtocol\Http\Messages\AnnounceResponseMessage.cs" />
+    <Compile Include="TrackerProtocol\Tracker.cs" />
+    <Compile Include="TrackerProtocol\Udp\Messages\AnnounceMessage.cs" />
+    <Compile Include="TrackerProtocol\Udp\Messages\AnnounceResponseMessage.cs" />
+    <Compile Include="TrackerProtocol\Udp\Messages\ConnectMessage.cs" />
+    <Compile Include="TrackerProtocol\Udp\Messages\ConnectResponseMessage.cs" />
+    <Compile Include="TrackerProtocol\Udp\Messages\ErrorMessage.cs" />
+    <Compile Include="TrackerProtocol\Udp\Messages\MessageType.cs" />
+    <Compile Include="TrackerProtocol\Udp\Messages\ScrapeDetails.cs" />
+    <Compile Include="TrackerProtocol\Udp\Messages\ScrapeMessage.cs" />
+    <Compile Include="TrackerProtocol\Udp\Messages\ScrapeResponseMessage.cs" />
+    <Compile Include="TrackerProtocol\Udp\Messages\TrackerMessage.cs" />
+    <Compile Include="TrackerProtocol\Udp\Messages\TrackingAction.cs" />
+    <Compile Include="TrackerProtocol\Udp\Messages\TrackingEvent.cs" />
+    <Compile Include="TrackerProtocol\Udp\UdpTracker.cs" />
+    <Compile Include="TransferManager.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="key.snk" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="netstandard, Version=2.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51" />
+    <Reference Include="System" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net" />
+    <Reference Include="System.Web" />
+    <Reference Include="DefensiveProgrammingFramework, Version=1.0.2.1, Culture=neutral, PublicKeyToken=ad755474965819fa, processorArchitecture=MSIL">
+      <HintPath>..\packages\DefensiveProgrammingFramework.1.0.2\lib\netstandard2.0\DefensiveProgrammingFramework.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
